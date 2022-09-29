@@ -46,6 +46,11 @@ keys.addEventListener("click", (e) => {
       } else {
         result.textContent = actualNumber.slice(0, -1);
       }
+
+      if(secondValue) {
+        calculator.dataset.operator = ''
+      }
+
       collectKey("clearSingle");
     }
 
