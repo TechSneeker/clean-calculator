@@ -25,6 +25,21 @@ keys.addEventListener("click", (e) => {
       collectKey("number");
     }
 
+    if (action === "decimal") {
+      if (!actualNumber.includes(".")) {
+        result.textContent = actualNumber + ".";
+      }
+      collectKey("decimal");
+    }
+
+    if (action === "state") {
+      if (!actualNumber.includes("-") && actualNumber !== "0") {
+        result.textContent = "-" + actualNumber;
+      } else if (actualNumber.includes("-")) {
+        result.textContent = actualNumber.replace("-", "");
+      }
+    }
+
     if (action === "clearSingle") {
       if (actualNumber.length == 1) {
         result.textContent = "0";
