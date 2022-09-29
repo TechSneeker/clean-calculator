@@ -24,6 +24,20 @@ keys.addEventListener("click", (e) => {
       }
       collectKey("number");
     }
+
+    if (action === "clearSingle") {
+      if (actualNumber.length == 1) {
+        result.textContent = "0";
+      } else {
+        result.textContent = actualNumber.slice(0, -1);
+      }
+      collectKey("clearSingle");
+    }
+
+    if (action === "clearAll") {
+      result.textContent = "0";
+      collectKey("clearAll");
+    }
   }
 });
 
