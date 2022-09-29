@@ -1,0 +1,106 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --background:rgb(58, 59, 59);
+    --firstDot:  rgb(253, 96, 68);
+    --secondDot: rgb(255, 243, 71);
+    --thirdDot:  rgb(77, 255, 71);
+    --Purple:    rgb(231, 68, 253);
+    --blue:      rgb(99, 71, 255);
+    --lightBlue: rgb(71, 172, 255);
+    --hover:     rgb(219, 219, 219);
+    --active:    rgb(184, 184, 184);
+    --button:    rgb(255, 246, 246);
+}   
+
+body {
+    background-image: linear-gradient(to right, var(--Purple), var(--blue), var(--lightBlue));
+}
+
+img {
+    width: 12px;
+}
+
+.dots {
+    padding: 7px;
+    user-select: none;
+}
+
+.dots .key-calculator {
+    user-select: none;
+}
+
+.dot {
+    display: inline-block;
+    margin-left: 3.5px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.dots .first {
+    background-color: var(--firstDot);
+}
+
+.dots .second {
+    background-color: var(--secondDot);
+}
+
+.dots .third {
+    background-color: var(--thirdDot);
+}
+
+.calculator {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 400px;
+    border-radius: 7px;
+    grid-template-rows: 1fr 1fr;
+    transform: translate(-50%, -50%);
+    background-color: var(--background);
+}
+
+.result-calculator {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    padding: 0 10px 15px 10px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: 500;
+    overflow-x: scroll;
+}
+
+.result-calculator::-webkit-scrollbar {
+    display: none;
+}
+
+.keys-calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+.keys-calculator button {
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    user-select: none;
+    border-radius: 3px;
+    border: solid 1px var(--background);
+    background-color: var(--button);
+}
+
+.keys-calculator button:hover {
+    background-color: var(--hover);
+}
+
+.keys-calculator button:active {
+    background-color: var(--active);
+}
