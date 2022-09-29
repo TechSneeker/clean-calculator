@@ -35,7 +35,7 @@ keys.addEventListener("click", (e) => {
     }
 
     if (action === "clearAll") {
-      result.textContent = "0";
+      flushValue();
       collectKey("clearAll");
     }
   }
@@ -75,6 +75,13 @@ const flushKey = (a) => {
   Array.from(a.parentNode.children).forEach((e) =>
     e.classList.remove("is-depressed")
   );
+};
+
+const flushValue = () => {
+  result.textContent = "0";
+  calculator.dataset.firstValue = "";
+  calculator.dataset.operator = "";
+  calculator.dataset.modValue = "";
 };
 
 const collectKey = (a) => {
