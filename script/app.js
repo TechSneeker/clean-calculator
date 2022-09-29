@@ -4,6 +4,26 @@ const calculator = document.querySelector(".calculator");
 
 keys.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
+    const key = e.target;
+    const keyClicked = key.textContent;
+    const action = key.dataset.action;
+    const actualNumber = result.textContent;
+    const lastKey = calculator.dataset.previousKeyType;
+
+    flushKey(key);
+
+    if (!action) {
+      if (
+        actualNumber === "0" ||
+        lastKey === "operator" ||
+        lastKey === "result"
+      ) {
+        result.textContent = keyClicked;
+      } else {
+        result.textContent = actualNumber + keyClicked;
+      }
+      collectKey("number");
+    }
   }
 });
 
@@ -35,4 +55,14 @@ const calc = (firstValue, operator, secondValue) => {
   }
 
   return result;
+};
+
+const flushKey = (a) => {
+  Array.from(a.parentNode.children).forEach((e) =>
+    e.classList.remove("is-depressed")
+  );
+};
+
+const collectKey = (a) => {
+  calculator.dataset.previousKeyType = a;
 };
