@@ -53,6 +53,36 @@ keys.addEventListener("click", (e) => {
       flushValue();
       collectKey("clearAll");
     }
+
+    if (
+        action === "add" ||
+        action === "subtract" ||
+        action === "multiply" ||
+        action === "divide" ||
+        action === "potency"
+      ) {
+        const firstValue = calculator.dataset.firstValue;
+        const operator = calculator.dataset.operator;
+        const secondValue = actualNumber;
+  
+        if (
+          firstValue &&
+          operator &&
+          lastKey !== "operator" &&
+          lastKey !== "result"
+        ) {
+          const resultValue = calc(firstValue, operator, secondValue);
+          result.textContent = resultValue;
+          calculator.dataset.firstValue = resultValue;
+        } else {
+          calculator.dataset.firstValue = actualNumber;
+        }
+  
+        key.classList.add("is-depressed");
+        collectKey("operator");
+        calculator.dataset.operator = action;
+      }
+      
   }
 });
 
